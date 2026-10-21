@@ -1,0 +1,550 @@
+/* GENERAL CONTAINER BACKGROUND & THEME */
+.charsheet {
+    background-color: #fcfaf2;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #333333;
+    padding: 15px;
+}
+
+.charsheet h1 {
+    color: #7a1111;
+    text-align: center;
+    margin-bottom: 2px;
+    font-size: 26px;
+    letter-spacing: 2px;
+}
+
+.charsheet h2 {
+    color: #555555;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-variant: small-caps;
+    letter-spacing: 1px;
+}
+
+.charsheet h4 {
+    color: #7a1111;
+    margin-top: 12px;
+    margin-bottom: 4px;
+    font-size: 13px;
+    border-bottom: 1px dashed #d1c7ac;
+    padding-bottom: 2px;
+}
+
+/* TWO-COLUMN GRID LAYOUT */
+.sheet-2colrow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.sheet-col {
+    background-color: #ffffff;
+    border: 1px solid #d1c7ac;
+    border-radius: 4px;
+    padding: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.sheet-col .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.charsheet input[type="text"],
+.charsheet input[type="number"],
+.charsheet select {
+    box-sizing: border-box;
+    border: 1px solid #bdae8f;
+    border-radius: 3px;
+    padding: 4px;
+    background-color: #fffdf9;
+    display: inline-block;
+}
+
+.charsheet input[type="text"]:focus,
+.charsheet input[type="number"]:focus,
+.charsheet select:focus {
+    border-color: #7a1111;
+    background-color: #ffffff;
+    outline: none;
+}
+
+.charsheet input[type="text"] { width: 65%; }
+.charsheet input[type="number"] { width: 60px; text-align: center; }
+.charsheet select { width: 100%; max-width: 100%; }
+
+.charsheet button[type="roll"] {
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #7a1111;
+    background-image: none;
+    text-shadow: none;
+    border: 1px solid #570c0c;
+    border-radius: 3px;
+    padding: 3px 10px;
+    cursor: pointer;
+    font-size: 11px;
+}
+
+.charsheet button[type="roll"]:hover { background-color: #991515; }
+
+.sheet-section, .sheet-section-traits {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background-color: #ffffff;
+    border: 1px solid #d1c7ac;
+    border-radius: 4px;
+    padding: 12px;
+}
+
+/* TRAIT INTERFACE GRID DESIGN */
+.trait-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed #d1c7ac;
+    margin-bottom: 10px;
+}
+
+.trait-header-row h4 {
+    border-bottom: none;
+    margin: 0;
+    padding: 0;
+}
+
+.total-badge {
+    background-color: #7a1111;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+}
+
+.trait-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    align-items: center;
+    gap: 15px;
+    padding: 6px 0;
+    border-bottom: 1px solid #f2edd5;
+}
+
+.crutch-box {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.crutch-box label {
+    margin: 0;
+    font-size: 11px;
+    color: #666;
+}
+
+.calculated-value {
+    text-align: right;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.calculated-value input {
+    width: 45px !important;
+    background-color: #eee !important;
+}
+
+.skill-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+.skill-row input[type="text"] { flex-grow: 1; }
+
+/* ROLL TEMPLATE STYLING */
+.sheet-rolltemplate-bethorm .sheet-template-container {
+    border: 2px solid #570c0c;
+    background-color: #fffdf9;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.sheet-rolltemplate-bethorm .sheet-template-header {
+    background-color: #7a1111;
+    color: #ffffff;
+    padding: 6px 10px;
+    font-weight: bold;
+    text-align: center;
+}
+.sheet-rolltemplate-bethorm .sheet-template-body { padding: 10px; font-size: 12px; }
+.sheet-rolltemplate-bethorm .sheet-template-hint {
+    font-size: 11px;
+    font-style: italic;
+    color: #b52222;
+    margin-top: 8px;
+    border-top: 1px dashed #d1c7ac;
+    padding-top: 6px;
+}
+
+/* CONTACTS SECTION INTERFACE */
+.contact-row {
+    display: grid;
+    grid-template-columns: auto 2fr 1.2fr 1.5fr 1fr 1fr;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #f2edd5;
+}
+
+.contact-row button[type="roll"] {
+    margin-right: 5px;
+    padding: 4px 8px;
+}
+
+.contact-row input[type="text"] {
+    width: 100% !important;
+}
+
+.contact-row label {
+    margin: 0;
+    font-size: 11px;
+    font-weight: bold;
+    color: #666;
+}
+
+.contact-row select, .contact-row input[type="number"] {
+    width: 100% !important;
+}
+
+/* WEAPONS MODULE HORIZONTAL GRID INTERFACE */
+/* BREAK-PROOF TABLE INTERFACE FOR MELEE ROW HORIZONTALS */
+/* BREAK-PROOF FLEX ROW ALIGNMENT FOR MELEE REPEATING SECTIONS */
+/* FORCE HORIZONTAL REGISTRY ACROSS ALL ROW BLOCKS */
+.charsheet .sheet-w-table-line {
+    display: block !important;
+    white-space: nowrap !important; /* Prevents input breaking into columns */
+    clear: both !important;
+    padding: 4px 0;
+    border-bottom: 1px solid #f2edd5;
+    width: 940px; /* Locks entire row track alignment */
+}
+
+.charsheet .sheet-w-table-line > div {
+    display: inline-block !important; /* Forces row elements to sit side-by-side */
+    vertical-align: middle !important;
+    box-sizing: border-box !important;
+    padding: 0 2px !important;
+}
+
+/* OVERRIDE INJECTED ROLL20 WRAPPERS */
+.charsheet .repitem {
+    display: block !important;
+    clear: both !important;
+}
+
+.charsheet .sheet-w-table-header {
+    border-bottom: 2px solid #bdae8f !important;
+    margin-bottom: 6px !important;
+    font-weight: bold !important;
+    font-size: 11px !important;
+    color: #555 !important;
+    background-color: #f2edd5;
+}
+
+.charsheet .sheet-w-table-header > div {
+    text-align: center !important;
+}
+
+.charsheet .sheet-weapon-box {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    height: 28px !important;
+    margin: 0 !important;
+    padding: 4px !important;
+    text-align: center !important;
+}
+
+.charsheet .sheet-w-read {
+    background-color: #eee !important;
+    border: 1px solid #ccc !important;
+}
+
+.charsheet .sheet-weapon-btn {
+    width: 100% !important;
+    height: 28px !important;
+    background-color: #2b5a1b !important;
+    background-image: none !important;
+    color: #fff !important;
+    text-shadow: none !important;
+    border: 1px solid #1c3c11 !important;
+    font-size: 11px !important;
+    font-weight: bold !important;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.charsheet .sheet-weapon-btn:hover {
+    background-color: #3b7a28 !important;
+}
+
+/* BREAK-PROOF TRAITS BLOCK FORMATTING */
+.charsheet .sheet-trait-table-line {
+    display: block !important;
+    white-space: nowrap !important;
+    clear: both !important;
+    padding: 3px 0;
+    border-bottom: 1px solid #f2edd5;
+    width: 470px; /* Locks compact width bound neatly */
+}
+
+.charsheet .sheet-trait-table-line > div {
+    display: inline-block !important;
+    vertical-align: middle !important;
+    box-sizing: border-box !important;
+    padding: 0 2px !important;
+}
+
+.charsheet .sheet-trait-table-header {
+    border-bottom: 2px solid #bdae8f !important;
+    margin-bottom: 4px !important;
+    font-weight: bold !important;
+    font-size: 11px !important;
+    color: #555 !important;
+    background-color: #f2edd5;
+}
+
+.charsheet .sheet-trait-box {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    height: 26px !important;
+    margin: 0 !important;
+    padding: 3px !important;
+}
+
+.charsheet .sheet-trait-check {
+    margin: 0 !important;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.charsheet .sheet-t-read {
+    background-color: #eee !important;
+    border: 1px solid #ccc !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+/* BREAK-PROOF CONTACTS BLOCK FORMATTING */
+.charsheet .sheet-c-table-line {
+    display: block !important;
+    white-space: nowrap !important;
+    clear: both !important;
+    padding: 4px 0;
+    border-bottom: 1px solid #f2edd5;
+    width: 650px; /* Locks absolute row width profile cleanly */
+}
+
+.charsheet .sheet-c-table-line > div {
+    display: inline-block !important;
+    vertical-align: middle !important;
+    box-sizing: border-box !important;
+    padding: 0 2px !important;
+}
+
+.charsheet .sheet-c-table-header {
+    border-bottom: 2px solid #bdae8f !important;
+    margin-bottom: 6px !important;
+    font-weight: bold !important;
+    font-size: 11px !important;
+    color: #555 !important;
+    background-color: #f2edd5;
+}
+
+.charsheet .sheet-c-table-header > div {
+    text-align: center !important;
+}
+
+.charsheet .sheet-contact-box {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    height: 28px !important;
+    margin: 0 !important;
+    padding: 4px !important;
+    text-align: center !important;
+}
+
+.charsheet .sheet-c-read {
+    background-color: #eee !important;
+    border: 1px solid #ccc !important;
+    font-weight: bold;
+}
+
+.charsheet .sheet-contact-btn {
+    width: 100% !important;
+    height: 28px !important;
+    background-color: #7a1111 !important;
+    background-image: none !important;
+    color: #fff !important;
+    text-shadow: none !important;
+    border: 1px solid #570c0c !important;
+    font-size: 11px !important;
+    font-weight: bold !important;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.charsheet .sheet-contact-btn:hover {
+    background-color: #991515 !important;
+}
+
+/* BREAK-PROOF SKILLS & SORCERY MODULE FORMATTING */
+/* BREAK-PROOF SKILLS & SORCERY STABILIZED LINE FORMATTING */
+.charsheet .sheet-s-table-line {
+    display: block !important;
+    white-space: nowrap !important;
+    clear: both !important;
+    padding: 4px 0;
+    border-bottom: 1px solid #f2edd5;
+    width: 895px; /* Fully extended locked tracker bounds */
+}
+
+.charsheet .sheet-s-table-line > div {
+    display: inline-block !important;
+    vertical-align: middle !important;
+    box-sizing: border-box !important;
+    padding: 0 2px !important;
+}
+
+.charsheet .sheet-s-table-header {
+    border-bottom: 2px solid #bdae8f !important;
+    margin-bottom: 6px !important;
+    font-weight: bold !important;
+    font-size: 11px !important;
+    color: #555 !important;
+    background-color: #f2edd5;
+}
+
+.charsheet .sheet-skill-box {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    height: 28px !important;
+    margin: 0 !important;
+    padding: 4px !important;
+    text-align: center !important;
+}
+
+.charsheet .sheet-skill-btn {
+    width: 100% !important;
+    height: 28px !important;
+    background-color: #1b455a !important;
+    background-image: none !important;
+    color: #fff !important;
+    text-shadow: none !important;
+    border: 1px solid #112d3c !important;
+    font-size: 11px !important;
+    font-weight: bold !important;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.charsheet .sheet-skill-btn:hover {
+    background-color: #286380 !important;
+}
+
+/* NEW SPELL REGISTRY COLUMN & INTERACTIVE VISIBILITY ENGINE */
+/* Force row elements within the spell fieldset to sit strictly side-by-side */
+.charsheet .sheet-spell-sub-col {
+    display: inline-block !important;
+    vertical-align: middle !important;
+    box-sizing: border-box !important;
+    padding: 0 2px !important;
+}
+
+/* ULTRA COMPACT STATIC SKILLS FORMATTING */
+.charsheet .sheet-s-row {
+    display: flex !important;
+    align-items: center !important;
+    padding: 1px 2px !important; /* Minimized vertical height padding */
+    margin: 0 !important;
+    border-bottom: 1px dashed #e8e2c4;
+    font-size: 10px !important;
+    line-height: 18px !important;
+}
+
+.charsheet .sheet-s-lbl {
+    flex: 1 !important;
+    font-weight: bold;
+    color: #444;
+    padding-left: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.charsheet .sheet-s-num {
+    width: 28px !important; /* Shrunk field profiles to prevent text wrap */
+    height: 18px !important;
+    padding: 1px !important;
+    margin: 0 2px !important;
+    text-align: center !important;
+    font-size: 10px !important;
+}
+
+.charsheet .sheet-s-span {
+    display: inline-block !important;
+    width: 28px !important;
+    height: 18px !important;
+    line-height: 18px !important;
+    margin: 0 2px !important;
+    text-align: center !important;
+    font-size: 10px !important;
+    font-weight: bold;
+    background-color: #eee !important;
+    border: 1px solid #ccc !important;
+    color: #333 !important;
+}
+
+.charsheet .sheet-s-span-display {
+    display: inline-block !important;
+    width: 28px !important;
+    height: 18px !important;
+    line-height: 18px !important;
+    margin: 0 2px !important;
+    text-align: center !important;
+    font-size: 10px !important;
+    font-weight: bold;
+    background-color: #eee !important;
+    border: 1px solid #ccc !important;
+    color: #333 !important;
+    border-radius: 2px;
+}
+
+.charsheet .sheet-s-read {
+    background-color: #eee !important;
+    border: 1px solid #ccc !important;
+    font-weight: bold;
+}
+
+.charsheet .sheet-d20-btn {
+    width: 18px !important; /* Shrunk action shortcut anchors */
+    height: 18px !important;
+    padding: 0 !important;
+    font-size: 10px !important;
+    line-height: 18px !important;
+    background-color: #7a1111 !important;
+    color: #fff !important;
+    border: 1px solid #570c0c !important;
+    border-radius: 2px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.charsheet .sheet-d20-btn:hover {
+    background-color: #991515 !important;
+}
