@@ -1,0 +1,97 @@
+<h1>BETHORM</h1> 
+<h2>CHARACTER RECORD SHEET</h2>
+
+<!-- Hidden default skill target values to match Roll20 roll references -->
+<div style="display:none;">
+    <input type="hidden" name="attr_tn_acrobatics" value="10" />
+    <input type="hidden" name="attr_tn_acting" value="10" />
+    <input type="hidden" name="attr_tn_administration" value="10" />
+    <input type="hidden" name="attr_tn_animal_handling" value="10" />
+    <input type="hidden" name="attr_tn_alchemy" value="10" />
+    <input type="hidden" name="attr_tn_apothecary" value="10" />
+    <input type="hidden" name="attr_tn_appraise_value" value="10" />
+    <input type="hidden" name="attr_tn_architect" value="10" />
+    <input type="hidden" name="attr_tn_art" value="10" />
+    <input type="hidden" name="attr_tn_artillery" value="10" />
+    <input type="hidden" name="attr_tn_astrology" value="10" />
+    <input type="hidden" name="attr_tn_astronomy" value="10" />
+    <input type="hidden" name="attr_tn_botany" value="10" />
+    <input type="hidden" name="attr_tn_brewer_winemaker" value="10" />
+    <input type="hidden" name="attr_tn_calligraphy" value="10" />
+    <input type="hidden" name="attr_tn_charm" value="10" />
+    <input type="hidden" name="attr_tn_climbing" value="10" />
+    <input type="hidden" name="attr_tn_convince" value="10" />
+    <input type="hidden" name="attr_tn_cook" value="10" />
+    <input type="hidden" name="attr_tn_cosmetics" value="10" />
+    <input type="hidden" name="attr_tn_craft" value="10" />
+    <input type="hidden" name="attr_tn_dancing" value="10" />
+    <input type="hidden" name="attr_tn_dodge" value="10" />
+    <input type="hidden" name="attr_tn_escape_artist" value="10" />
+    <input type="hidden" name="attr_tn_etiquette" value="10" />
+    <input type="hidden" name="attr_tn_fashion" value="10" />
+    <input type="hidden" name="attr_tn_find_direction" value="10" />
+    <input type="hidden" name="attr_tn_fishing" value="10" />
+    <input type="hidden" name="attr_tn_forgery" value="10" />
+    <input type="hidden" name="attr_tn_gambling" value="10" />
+    <input type="hidden" name="attr_tn_geography" value="10" />
+    <input type="hidden" name="attr_tn_geology" value="10" />
+    <input type="hidden" name="attr_tn_grapple" value="10" />
+    <input type="hidden" name="attr_tn_history" value="10" />
+    <input type="hidden" name="attr_tn_insight" value="10" />
+    <input type="hidden" name="attr_tn_interrogation" value="10" />
+    <input type="hidden" name="attr_tn_intimidation" value="10" />
+    <input type="hidden" name="attr_tn_jump" value="10" />
+    <input type="hidden" name="attr_tn_kick" value="10" />
+    <input type="hidden" name="attr_tn_lawyer" value="10" />
+    <input type="hidden" name="attr_tn_listen" value="10" />
+    <input type="hidden" name="attr_tn_literary_scholar" value="10" />
+    <input type="hidden" name="attr_tn_locksmith" value="10" />
+    <input type="hidden" name="attr_tn_mathematics" value="10" />
+    <input type="hidden" name="attr_tn_mechanic" value="10" />
+    <input type="hidden" name="attr_tn_melee" value="10" />
+    <input type="hidden" name="attr_tn_mimic_voice" value="10" />
+    <input type="hidden" name="attr_tn_mining" value="10" />
+    <input type="hidden" name="attr_tn_missile" value="10" />
+    <input type="hidden" name="attr_tn_negotiate" value="10" />
+    <input type="hidden" name="attr_tn_oratory" value="10" />
+    <input type="hidden" name="attr_tn_panderer" value="10" />
+    <input type="hidden" name="attr_tn_performer" value="10" />
+    <input type="hidden" name="attr_tn_philosophy" value="10" />
+    <input type="hidden" name="attr_tn_physician" value="10" />
+    <input type="hidden" name="attr_tn_play_instrument" value="10" />
+    <input type="hidden" name="attr_tn_prestidigitator" value="10" />
+    <input type="hidden" name="attr_tn_punch" value="10" />
+    <input type="hidden" name="attr_tn_research" value="10" />
+    <input type="hidden" name="attr_tn_resist_sorcery" value="10" />
+    <input type="hidden" name="attr_tn_ritual" value="10" />
+    <input type="hidden" name="attr_tn_running" value="10" />
+    <input type="hidden" name="attr_tn_scholar" value="10" />
+    <input type="hidden" name="attr_tn_search" value="10" />
+    <input type="hidden" name="attr_tn_seduce" value="10" />
+    <input type="hidden" name="attr_tn_shield" value="10" />
+    <input type="hidden" name="attr_tn_shipwright" value="10" />
+    <input type="hidden" name="attr_tn_singing" value="10" />
+    <input type="hidden" name="attr_tn_slaver" value="10" />
+    <input type="hidden" name="attr_tn_sorcery" value="10" />
+    <input type="hidden" name="attr_tn_stealth" value="10" />
+    <input type="hidden" name="attr_tn_survival" value="10" />
+    <input type="hidden" name="attr_tn_swim" value="10" />
+    <input type="hidden" name="attr_tn_tactics" value="10" />
+    <input type="hidden" name="attr_tn_throw_weapon" value="10" />
+    <input type="hidden" name="attr_tn_tie_knots" value="10" />
+    <input type="hidden" name="attr_tn_tracking" value="10" />
+    <input type="hidden" name="attr_tn_vehicle" value="10" />
+    <input type="hidden" name="attr_tn_ventriloquism" value="10" />
+    <input type="hidden" name="attr_tn_write_music" value="10" />
+    <input type="hidden" name="attr_tn_zoology" value="10" />
+</div>
+
+<!-- BREAK-PROOF MASTER TWO-COLUMN GRID TABLE -->
+<table style="width: 100%; border-collapse: collapse; margin-bottom: 15px; display: table !important;">
+    <tr style="display: table-row !important;">
+        
+        <!-- COLUMN 1: LEFT SIDE (BASICS, ATTRIBUTES, SECONDARY STATS) -->
+        <td style="width: 50%; vertical-align: top; padding-right: 10px; display: table-cell !important;">
+            <div class='sheet-col' style="width: 100%; box-sizing: border-box;">
+                <h4>Name: </h4> 
+                <input type="text" name="attr_CharName" /> <br />
