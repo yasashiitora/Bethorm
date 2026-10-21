@@ -94,4 +94,876 @@
         <td style="width: 50%; vertical-align: top; padding-right: 10px; display: table-cell !important;">
             <div class='sheet-col' style="width: 100%; box-sizing: border-box;">
                 <h4>Name: </h4> 
-                <input type="text" name="attr_CharName" /> <br />
+                <input type="text" name="attr_char_name" /> <br />
+            
+                <!-- RACE AND GENDER SIDE-BY-SIDE GRID ROW -->
+                <div style="display: block; white-space: nowrap; margin-top: 10px; margin-bottom: 10px;">
+                    <div style="display: inline-block; width: 48%; vertical-align: top; box-sizing: border-box; padding-right: 5px;">
+                        <h4 style="margin-top: 0;">Race:</h4>
+                        <select name="attr_race" class="race" style="width: 100% !important; box-sizing: border-box;">
+                          <option value=""></option>            
+                          <option value="Human">Human</option>
+                          <option value="Ahoggyá">Ahoggyá</option>
+                          <option value="Chíma">Chíma</option>
+                          <option value="Hegléthyal">Hegléthyal</option>
+                          <option value="Hláka">Hláka</option>
+                          <option value="Ninínyal">Ninínyal</option>
+                          <option value="N’lüss">N’lüss</option>
+                          <option value="Nóm">Nóm</option>
+                          <option value="PáchiLéi">Páchi Léi</option>
+                          <option value="PeChoi">Pé Chói</option>
+                          <option value="Shen">Shén</option>
+                          <option value="Tinaliya">Tinalíya</option>
+                          <option value="Urunén">Urunén</option>
+                        </select>
+                    </div>
+                    <div style="display: inline-block; width: 48%; vertical-align: top; box-sizing: border-box; padding-left: 5px;">
+                        <h4 style="margin-top: 0;">Gender:</h4>
+                        <select name="attr_gender" class="gender" style="width: 100% !important; box-sizing: border-box;">
+                          <option value=""></option>            
+                          <option value="Neuter">Neuter</option>
+                          <option value="Male">Male</option>
+                          <option value="Female">Female</option>
+                          <option value="Trans">Trans</option>
+                          <option value="Multi">Multi</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class='row'>
+                    Chosen Base Age: <input type="number" name="attr_age" class="age" value="15" />
+                </div>
+                <div class='row'>
+                    <strong>Calculated Current Age:</strong> <input type="number" name="attr_calculated_age" value="15" readonly style="font-weight: bold; background-color: #eee;" />
+                </div>
+
+                <h4>Primary Attributes</h4>
+                <div class='row'>
+                    <button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=PHYS}} {{roll=[[2d10]]}} {{target=[[@{phys}]]}}" name="roll_phys">PHYS</button>
+                    <input type="number" name="attr_phys" value="10" />
+                </div>
+                <div class='row'>
+                    <button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=DEFT}} {{roll=[[2d10]]}} {{target=[[@{deft}]]}}" name="roll_deft">DEFT</button>
+                    <input type="number" name="attr_deft" value="10" />
+                </div>
+                <div class='row'>
+                    <button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=INTL}} {{roll=[[2d10]]}} {{target=[[@{intl}]]}}" name="roll_intl">INTL</button>
+                    <input type="number" name="attr_intl" value="10" />
+                </div>
+                <div class='row'>
+                    <button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=WILL}} {{roll=[[2d10]]}} {{target=[[@{will}]]}}" name="roll_will">WILL</button>
+                    <input type="number" name="attr_will" value="10" />
+                </div>
+                <div class='row'>
+                    <button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=PSYC}} {{roll=[[2d10]]}} {{target=[[@{psyc}]]}}" name="roll_psyc">PSYC</button>
+                    <input type="number" name="attr_psyc" value="5" />
+                </div>
+
+                <h4>Secondary Characteristics</h4>
+                <div class='row'>
+                    Current HP: <input type="number" name="attr_hp" value="2" /> / 
+                    Max HP: <input type="number" name="attr_hp_max" value="2" readonly style="font-weight: bold; background-color: #eee;" />
+                </div>
+                <div class='row'>
+                    Unarmed Damage Melee Roll: <input type="text" name="attr_unarmed_damage" value="0/1/2" readonly style="background-color: #eee;" />
+                </div>
+                <div class='row'>
+                    Initiative Roll Segment: <input type="text" name="attr_initiative_roll" value="0/1/2" readonly style="background-color: #eee;" />
+                </div>
+                <div class='row'>
+                    Psychic Power Points (NRG): <input type="number" name="attr_psychic_nrg" value="25" readonly style="background-color: #eee;" />
+                </div>
+                <div class='row'>
+                    <strong>Magical Aptitude:</strong> <input type="text" name="attr_magical_aptitude" value="None" readonly style="font-weight: bold; background-color: #f2f7fd; color: #1b455a; border: 1px solid #bfd8ee;" />
+                </div>
+            </div>
+        </td>
+        
+        <!-- COLUMN 2: RIGHT SIDE (PLAYER, CAMPAIGN, GOD, EXPERIENCE BLOCKS) -->
+        <td style="width: 50%; vertical-align: top; padding-left: 10px; display: table-cell !important;">
+            <div class='sheet-col' style="width: 100%; box-sizing: border-box;">
+                Player: <input type="text" name="attr_player" />
+                <div class='row'>
+                    Campaign: <input type="text" name="attr_campaign" />
+                </div>
+                <div class='row'>
+                    Clan: <input type="text" name="attr_clan" /> Clan Rank: <input type="number" name="attr_clan_rank" />
+                </div>
+                
+                <h4>God:</h4>
+                <select name="attr_god" class="god">
+                  <option value=""></option>            
+                  <option value="Avánthe">Avánthe</option>
+                  <option value="Belkhánu">Belkhánu</option>
+                  <option value="Hnálla">Hnálla</option>
+                  <option value="Karakán">Karakán</option>
+                  <option value="Thúmis">Thúmis</option>
+                  <option value="Dlamélish">Dlamélish</option>
+                  <option value="Hrü’ü">Hrü’ü</option>
+                  <option value="Ksárul">Ksárul</option>
+                  <option value="Sárku">Sárku</option>
+                  <option value="Vimúhla">Vimúhla</option>
+                  <option value="Pariah God">Pariah God</option>
+                </select>
+                
+                <div class='row'>
+                    Prestige: <input type="number" name="attr_prestige" />
+                </div>
+                <div class='row'>
+                    Job: <input type="text" name="attr_job" /> Rank: <input type="number" name="attr_job_rank" />
+                </div>
+                <div class='row'>
+                    Contacts: <input type="number" name="attr_contacts" />
+                </div>
+                <div class='row'>
+                    Move: <input type="number" name="attr_move" value="1" readonly style="font-weight: bold; background-color: #eee;" />
+                </div>
+                <div class='row'>
+                    Armored: <input type="number" name="attr_armored" />
+                </div>
+                <div class='row'>
+                    Appearance: <input type="text" name="attr_appearance" />
+                </div>
+
+                <h4>Experience Points (EP) Generation</h4>
+                <div class='row'>
+                    Base EP (from INTL): <input type="number" name="attr_base_ep" value="10" readonly />
+                </div>
+                <div class='row'>
+                    <strong>Final Starting EP:</strong> <input type="number" name="attr_starting_ep" value="10" readonly style="font-weight: bold; border-color: #7a1111; background-color: #fdf6f6;" />
+                </div>
+            </div>
+        </td>
+
+    </tr>
+</table>
+
+<!-- STANDALONE SKILLS SECTION -->
+<div class="sheet-section-traits" style="margin-top: 10px; padding: 4px;">
+    <div class="trait-header-row" style="margin-bottom: 4px;">
+        <h4 style="margin: 0; padding: 2px 0;">Step 7: Physical & Mental Skills Ledger (Part 1)</h4>
+    </div>
+    <table style="width: 100%; border-collapse: collapse; display: table !important; margin: 0;">
+        <thead>
+            <tr style="background-color: #f2edd5; font-size: 10px; font-weight: bold; color: #555; line-height: 14px;">
+                <th style="padding: 2px; text-align: center; width: 33%;">Column 1: Acrobatics to Astronomy</th>
+                <th style="padding: 2px; text-align: center; width: 33%; border-left: 2px solid #bdae8f;">Column 2: Botany to Dodge</th>
+                <th style="padding: 2px; text-align: center; width: 33%; border-left: 2px solid #bdae8f;">Column 3: Escape Artist to Grapple</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="vertical-align: top; padding: 1px; width: 33%;">
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Acrobatics Check}} {{roll=[[2d10]]}} {{target=[[@{tn_acrobatics}]]}}" class="sheet-d20-btn">Acrobatics</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Acting Check}} {{roll=[[2d10]]}} {{target=[[@{tn_acting}]]}}" class="sheet-d20-btn">Acting</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Administration Check}} {{roll=[[2d10]]}} {{target=[[@{tn_administration}]]}}" class="sheet-d20-btn">Administration</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Animal Handling Check}} {{roll=[[2d10]]}} {{target=[[@{tn_animal_handling}]]}}" class="sheet-d20-btn">Animal Handling</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Alchemy Check}} {{roll=[[2d10]]}} {{target=[[@{tn_alchemy}]]}}" class="sheet-d20-btn">Alchemy</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Apothecary Check}} {{roll=[[2d10]]}} {{target=[[@{tn_apothecary}]]}}" class="sheet-d20-btn">Apothecary</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Appraise Value Check}} {{roll=[[2d10]]}} {{target=[[@{tn_appraise_value}]]}}" class="sheet-d20-btn">Appraise Value</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Architect Check}} {{roll=[[2d10]]}} {{target=[[@{tn_architect}]]}}" class="sheet-d20-btn">Architect</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Art Check}} {{roll=[[2d10]]}} {{target=[[@{tn_art}]]}}" class="sheet-d20-btn">Art</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Artillery Check}} {{roll=[[2d10]]}} {{target=[[@{tn_artillery}]]}}" class="sheet-d20-btn">Artillery</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Astrology Check}} {{roll=[[2d10]]}} {{target=[[@{tn_astrology}]]}}" class="sheet-d20-btn">Astrology</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Astronomy Check}} {{roll=[[2d10]]}} {{target=[[@{tn_astronomy}]]}}" class="sheet-d20-btn">Astronomy</button></div>
+                </td>
+                <td style="vertical-align: top; padding: 1px; border-left: 2px solid #bdae8f; width: 33%;">
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Botany Check}} {{roll=[[2d10]]}} {{target=[[@{tn_botany}]]}}" class="sheet-d20-btn">Botany</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Brewer/Winemaker Check}} {{roll=[[2d10]]}} {{target=[[@{tn_brewer_winemaker}]]}}" class="sheet-d20-btn">Brewer/Winemaker</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Calligraphy Check}} {{roll=[[2d10]]}} {{target=[[@{tn_calligraphy}]]}}" class="sheet-d20-btn">Calligraphy</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Charm Check}} {{roll=[[2d10]]}} {{target=[[@{tn_charm}]]}}" class="sheet-d20-btn">Charm</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Climbing Check}} {{roll=[[2d10]]}} {{target=[[@{tn_climbing}]]}}" class="sheet-d20-btn">Climbing</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Convince Check}} {{roll=[[2d10]]}} {{target=[[@{tn_convince}]]}}" class="sheet-d20-btn">Convince</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Cook Check}} {{roll=[[2d10]]}} {{target=[[@{tn_cook}]]}}" class="sheet-d20-btn">Cook</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Cosmetics Check}} {{roll=[[2d10]]}} {{target=[[@{tn_cosmetics}]]}}" class="sheet-d20-btn">Cosmetics</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Craft Check}} {{roll=[[2d10]]}} {{target=[[@{tn_craft}]]}}" class="sheet-d20-btn">Craft</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Dancing Check}} {{roll=[[2d10]]}} {{target=[[@{tn_dancing}]]}}" class="sheet-d20-btn">Dancing</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Dodge Check}} {{roll=[[2d10]]}} {{target=[[@{tn_dodge}]]}}" class="sheet-d20-btn">Dodge</button></div>
+                </td>
+                <td style="vertical-align: top; padding: 1px; border-left: 2px solid #bdae8f; width: 33%;">
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Escape Artist Check}} {{roll=[[2d10]]}} {{target=[[@{tn_escape_artist}]]}}" class="sheet-d20-btn">Escape Artist</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Etiquette Check}} {{roll=[[2d10]]}} {{target=[[@{tn_etiquette}]]}}" class="sheet-d20-btn">Etiquette</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Fashion Check}} {{roll=[[2d10]]}} {{target=[[@{tn_fashion}]]}}" class="sheet-d20-btn">Fashion</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Find Direction Check}} {{roll=[[2d10]]}} {{target=[[@{tn_find_direction}]]}}" class="sheet-d20-btn">Find Direction</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Fishing Check}} {{roll=[[2d10]]}} {{target=[[@{tn_fishing}]]}}" class="sheet-d20-btn">Fishing</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Forgery Check}} {{roll=[[2d10]]}} {{target=[[@{tn_forgery}]]}}" class="sheet-d20-btn">Forgery</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Gambling Check}} {{roll=[[2d10]]}} {{target=[[@{tn_gambling}]]}}" class="sheet-d20-btn">Gambling</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Geography Check}} {{roll=[[2d10]]}} {{target=[[@{tn_geography}]]}}" class="sheet-d20-btn">Geography</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Geology Check}} {{roll=[[2d10]]}} {{target=[[@{tn_geology}]]}}" class="sheet-d20-btn">Geology</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Grapple Check}} {{roll=[[2d10]]}} {{target=[[@{tn_grapple}]]}}" class="sheet-d20-btn">Grapple</button></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="sheet-section-traits" style="margin-top: 10px; padding: 4px;">
+    <div class="trait-header-row" style="margin-bottom: 4px;">
+        <h4 style="margin: 0; padding: 2px 0;">Step 7: Physical & Mental Skills Ledger (Part 2)</h4>
+    </div>
+    <table style="width: 100%; border-collapse: collapse; display: table !important; margin: 0;">
+        <thead>
+            <tr style="background-color: #f2edd5; font-size: 10px; font-weight: bold; color: #555; line-height: 14px;">
+                <th style="padding: 2px; text-align: center; width: 33%;">Column 1: History to Missile</th>
+                <th style="padding: 2px; text-align: center; width: 33%; border-left: 2px solid #bdae8f;">Column 2: Negotiate to Seduce</th>
+                <th style="padding: 2px; text-align: center; width: 33%; border-left: 2px solid #bdae8f;">Column 3: Shield to Zoology</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="vertical-align: top; padding: 1px; width: 33%;">
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=History Check}} {{roll=[[2d10]]}} {{target=[[@{tn_history}]]}}" class="sheet-d20-btn">History</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Insight Check}} {{roll=[[2d10]]}} {{target=[[@{tn_insight}]]}}" class="sheet-d20-btn">Insight</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Interrogation Check}} {{roll=[[2d10]]}} {{target=[[@{tn_interrogation}]]}}" class="sheet-d20-btn">Interrogation</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Intimidation Check}} {{roll=[[2d10]]}} {{target=[[@{tn_intimidation}]]}}" class="sheet-d20-btn">Intimidation</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Jump Check}} {{roll=[[2d10]]}} {{target=[[@{tn_jump}]]}}" class="sheet-d20-btn">Jump</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Kick Check}} {{roll=[[2d10]]}} {{target=[[@{tn_kick}]]}}" class="sheet-d20-btn">Kick</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Lawyer Check}} {{roll=[[2d10]]}} {{target=[[@{tn_lawyer}]]}}" class="sheet-d20-btn">Lawyer</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Listen Check}} {{roll=[[2d10]]}} {{target=[[@{tn_listen}]]}}" class="sheet-d20-btn">Listen</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Literary Scholar Check}} {{roll=[[2d10]]}} {{target=[[@{tn_literary_scholar}]]}}" class="sheet-d20-btn">Literary Scholar</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Locksmith Check}} {{roll=[[2d10]]}} {{target=[[@{tn_locksmith}]]}}" class="sheet-d20-btn">Locksmith</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Mathematics Check}} {{roll=[[2d10]]}} {{target=[[@{tn_mathematics}]]}}" class="sheet-d20-btn">Mathematics</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Mechanic Check}} {{roll=[[2d10]]}} {{target=[[@{tn_mechanic}]]}}" class="sheet-d20-btn">Mechanic</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Melee Check}} {{roll=[[2d10]]}} {{target=[[@{tn_melee}]]}}" class="sheet-d20-btn">Melee</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Mimic Voice Check}} {{roll=[[2d10]]}} {{target=[[@{tn_mimic_voice}]]}}" class="sheet-d20-btn">Mimic Voice</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Mining Check}} {{roll=[[2d10]]}} {{target=[[@{tn_mining}]]}}" class="sheet-d20-btn">Mining</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Missile Check}} {{roll=[[2d10]]}} {{target=[[@{tn_missile}]]}}" class="sheet-d20-btn">Missile</button></div>
+                </td>
+                <td style="vertical-align: top; padding: 1px; border-left: 2px solid #bdae8f; width: 33%;">
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Negotiate Check}} {{roll=[[2d10]]}} {{target=[[@{tn_negotiate}]]}}" class="sheet-d20-btn">Negotiate</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Oratory Check}} {{roll=[[2d10]]}} {{target=[[@{tn_oratory}]]}}" class="sheet-d20-btn">Oratory</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Panderer Check}} {{roll=[[2d10]]}} {{target=[[@{tn_panderer}]]}}" class="sheet-d20-btn">Panderer</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Performer Check}} {{roll=[[2d10]]}} {{target=[[@{tn_performer}]]}}" class="sheet-d20-btn">Performer</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Philosophy Check}} {{roll=[[2d10]]}} {{target=[[@{tn_philosophy}]]}}" class="sheet-d20-btn">Philosophy</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Physician Check}} {{roll=[[2d10]]}} {{target=[[@{tn_physician}]]}}" class="sheet-d20-btn">Physician</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Play Instrument Check}} {{roll=[[2d10]]}} {{target=[[@{tn_play_instrument}]]}}" class="sheet-d20-btn">Play Instrument</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Prestidigitator Check}} {{roll=[[2d10]]}} {{target=[[@{tn_prestidigitator}]]}}" class="sheet-d20-btn">Prestidigitator</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Punch Check}} {{roll=[[2d10]]}} {{target=[[@{tn_punch}]]}}" class="sheet-d20-btn">Punch</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Research Check}} {{roll=[[2d10]]}} {{target=[[@{tn_research}]]}}" class="sheet-d20-btn">Research</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Resist Sorcery Check}} {{roll=[[2d10]]}} {{target=[[@{tn_resist_sorcery}]]}}" class="sheet-d20-btn">Resist Sorcery</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Ritual Check}} {{roll=[[2d10]]}} {{target=[[@{tn_ritual}]]}}" class="sheet-d20-btn">Ritual</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Running Check}} {{roll=[[2d10]]}} {{target=[[@{tn_running}]]}}" class="sheet-d20-btn">Running</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Scholar Check}} {{roll=[[2d10]]}} {{target=[[@{tn_scholar}]]}}" class="sheet-d20-btn">Scholar</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Search Check}} {{roll=[[2d10]]}} {{target=[[@{tn_search}]]}}" class="sheet-d20-btn">Search</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Seduce Check}} {{roll=[[2d10]]}} {{target=[[@{tn_seduce}]]}}" class="sheet-d20-btn">Seduce</button></div>
+                </td>
+                <td style="vertical-align: top; padding: 1px; border-left: 2px solid #bdae8f; width: 33%;">
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Shield Check}} {{roll=[[2d10]]}} {{target=[[@{tn_shield}]]}}" class="sheet-d20-btn">Shield</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Shipwright Check}} {{roll=[[2d10]]}} {{target=[[@{tn_shipwright}]]}}" class="sheet-d20-btn">Shipwright</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Singing Check}} {{roll=[[2d10]]}} {{target=[[@{tn_singing}]]}}" class="sheet-d20-btn">Singing</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Slaver Check}} {{roll=[[2d10]]}} {{target=[[@{tn_slaver}]]}}" class="sheet-d20-btn">Slaver</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Sorcery Theory Check}} {{roll=[[2d10]]}} {{target=[[@{tn_sorcery}]]}}" class="sheet-d20-btn">Sorcery Theory</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Stealth Check}} {{roll=[[2d10]]}} {{target=[[@{tn_stealth}]]}}" class="sheet-d20-btn">Stealth</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Survival Check}} {{roll=[[2d10]]}} {{target=[[@{tn_survival}]]}}" class="sheet-d20-btn">Survival</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Swim Check}} {{roll=[[2d10]]}} {{target=[[@{tn_swim}]]}}" class="sheet-d20-btn">Swim</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Tactics Check}} {{roll=[[2d10]]}} {{target=[[@{tn_tactics}]]}}" class="sheet-d20-btn">Tactics</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Throw Weapon Check}} {{roll=[[2d10]]}} {{target=[[@{tn_throw_weapon}]]}}" class="sheet-d20-btn">Throw Weapon</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Tie Knots Check}} {{roll=[[2d10]]}} {{target=[[@{tn_tie_knots}]]}}" class="sheet-d20-btn">Tie Knots</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Tracking Check}} {{roll=[[2d10]]}} {{target=[[@{tn_tracking}]]}}" class="sheet-d20-btn">Tracking</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Vehicle Check}} {{roll=[[2d10]]}} {{target=[[@{tn_vehicle}]]}}" class="sheet-d20-btn">Vehicle</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Ventriloquism Check}} {{roll=[[2d10]]}} {{target=[[@{tn_ventriloquism}]]}}" class="sheet-d20-btn">Ventriloquism</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Write Music Check}} {{roll=[[2d10]]}} {{target=[[@{tn_write_music}]]}}" class="sheet-d20-btn">Write Music</button></div>
+                    <div class="sheet-s-row"><button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Zoology Check}} {{roll=[[2d10]]}} {{target=[[@{tn_zoology}]]}}" class="sheet-d20-btn">Zoology</button></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="sheet-section-traits" style="margin-top: 20px;">
+    <div class="trait-header-row">
+        <h4>Step 7b: Languages & Literacy Registry</h4>
+    </div>
+    <div class="sheet-s-table-line sheet-s-table-header" style="width: 595px;">
+        <div class="sheet-spell-sub-col" style="width: 170px; text-align: left; padding-left: 5px;">Language Selection</div>
+        <div class="sheet-spell-sub-col" style="width: 150px; text-align: center;">Spoken Fluency</div>
+        <div class="sheet-spell-sub-col" style="width: 110px; text-align: center;">Literate?</div>
+        <div class="sheet-spell-sub-col" style="width: 80px; text-align: center;">EP Cost</div>
+    </div>
+    <fieldset class="repeating_languages">
+        <div class="sheet-s-table-line" style="width: 595px;">
+            <div class="sheet-spell-sub-col" style="width: 170px; padding-left: 5px;">
+                <select name="attr_lang_selection" class="sheet-skill-box">
+                    <option value="tsolyani">Tsolyáni (Native Default)</option>
+                    <optgroup label="Modern Human Tongues">
+                        <option value="aomorh">Aómorh</option>
+                        <option value="hijajai">Hijajái</option>
+                        <option value="jannuyani">Jannuyáni</option>
+                        <option value="livyani">Livyáni</option>
+                        <option value="loorunankh">Lo’orúnankh</option>
+                        <option value="milumanayani">Milumanayáni</option>
+                        <option value="muugalavyani">Mu’ugalavyáni</option>
+                        <option value="nlussa">N’lüssa</option>
+                        <option value="pee">Pe'é</option>
+                        <option value="pechani">Pecháni</option>
+                        <option value="saa_allaqiyani">Sa’á Allaqiyáni</option>
+                        <option value="salarvyani">Salarvyáni</option>
+                        <option value="tka_mihalli">Tká Mihálli</option>
+                        <option value="tsoleii">Tsoléi'i</option>
+                        <option value="yan_koryani">Yan Koryáni</option>
+                    </optgroup>
+                    <optgroup label="Ancient Human Tongues">
+                        <option value="ai_che">Aí Ché</option>
+                        <option value="bednalljan">Bednálljan Salarvyáni</option>
+                        <option value="class_muugalavyani">Classical Mu’ugalavyáni</option>
+                        <option value="class_tsolyani">Classical Tsolyáni</option>
+                        <option value="duruob">Duruób</option>
+                        <option value="engsvanyali">Engsvanyáli</option>
+                        <option value="llyani">Llyáni</option>
+                        <option value="sunuz">Sunúz</option>
+                        <option value="thuusa">Thu’úsa</option>
+                        <option value="worm_tongue">Tongue of Lord of Worms</option>
+                        <option value="ksarul_tongue">Tongue of Priests of Ksárul</option>
+                        <option value="tsaqw">Tsáqw</option>
+                        <option value="znaye">Zna'yé</option>
+                    </optgroup>
+                    <optgroup label="Nonhuman Tongues (Rule 3.10.5.5)">
+                        <option value="nh_ahoggya">Ahoggyá Speak</option>
+                        <option value="nh_chima">Chíma Speak</option>
+                        <option value="nh_heglethyal">Hegléthyal Speak</option>
+                        <option value="nh_hlaka">Hláka Speak</option>
+                        <option value="nh_pechoi">Pé Chói Speak</option>
+                        <option value="nh_shen">Shén Speak</option>
+                        <option value="nh_tinaliya">Tinalíya Speak</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="sheet-spell-sub-col" style="width: 150px;">
+                <select name="attr_lang_fluency" class="sheet-skill-box">
+                    <option value="native">Native (Free)</option>
+                    <option value="broken">Broken (1 EP)</option>
+                    <option value="accented">Accented (2 EPs)</option>
+                    <option value="fluent">Fluent (3 EPs)</option>
+                </select>
+            </div>
+            <div class="sheet-spell-sub-col" style="width: 110px; text-align: center;">
+                <select name="attr_lang_literacy" class="sheet-skill-box">
+                    <option value="no">No</option>
+                    <option value="yes">Yes (+1 EP)</option>
+                    <option value="free_native">Native Free</option>
+                </select>
+            </div>
+            <div class="sheet-spell-sub-col" style="width: 80px; text-align: center;">
+                <input type="number" name="attr_lang_calculated_cost" value="0" readonly class="sheet-skill-box sheet-w-read" style="font-weight: bold; background-color: #eee;" />
+            </div>
+        </div>
+    </fieldset>
+</div>
+
+<div class="sheet-section-traits" style="margin-top: 20px;">
+    <div class="trait-header-row">
+        <h4>Step 8: Temple Rituals & Psychic Sorcery</h4>
+    </div>
+    <div class="sheet-s-table-line sheet-s-table-header" style="width: 755px;">
+        <div class="sheet-spell-sub-col" style="width: 55px; text-align: center;">Action</div>
+        <div class="sheet-spell-sub-col" style="width: 170px; text-align: left; padding-left: 5px;">Spell Selection</div>
+        <div class="sheet-spell-sub-col" style="width: 60px; text-align: center;">Level/TN</div>
+        <div class="sheet-spell-sub-col" style="width: 45px; text-align: center;">NRG</div>
+        <div class="sheet-spell-sub-col" style="width: 50px; text-align: center;">Prep</div>
+        <div class="sheet-spell-sub-col" style="width: 60px; text-align: center;">Range</div>
+        <div class="sheet-spell-sub-col" style="width: 80px; text-align: center;">Duration</div>
+        <div class="sheet-spell-sub-col" style="width: 110px; text-align: center;">Target Type</div>
+        <div class="sheet-spell-sub-col" style="width: 65px; text-align: center;">Resist?</div>
+    </div>
+    <fieldset class="repeating_spells">
+        <div class="sheet-s-table-line" style="width: 755px;">
+            <div class="sheet-spell-sub-col" style="width: 55px; text-align: center;">
+                <button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=@{spell_display_name} Casting}} {{roll=[[2d10]]}} {{target=[[@{spell_level_tn}]]}} {{type=@{spell_type_tag}}}" class="sheet-d20-btn"></button>
+            </div>
+            <div class="sheet-spell-sub-col" style="width: 170px; padding-left: 5px;">
+                <select name="attr_spell_selection" class="sheet-skill-box">
+                    <option value="custom">-- Custom Spell --</option>
+                    <optgroup label="1. Alleviation"><option value="1a_neutralize_poison">1A. Neutralize Poison</option></optgroup>
+                    <optgroup label="2. Ascertainment"><option value="2a_mind_reading">2A. Mind Reading</option><option value="2b_telepathy">2B. Telepathy</option><option value="2c_psychic_trap">2C. Psychic Trap</option></optgroup>
+                    <optgroup label="3. Clairvoyance"><option value="3a_clairvoyance">3A. Clairvoyance/Aud</option><option value="3b_curtain_non_perception">3B. Curtain of Non-Perc</option></optgroup>
+                    <optgroup label="4. Control of Self"><option value="4a_control_of_self">4A. Control of Self</option><option value="4b_combat_control">4B. Combat Control</option></optgroup>
+                    <optgroup label="5. Disenchantment"><option value="5a_dispel_universal">5A. Dispel Universal</option><option value="5b_dispel_generic">5B. Dispel Generic</option><option value="5c_dispel_specific">5C. Dispel Specific</option></optgroup>
+                    <optgroup label="6. Domination"><option value="6a_domination">6A. Domination</option><option value="6b_mind_control">6B. Mind Control</option></optgroup>
+                    <optgroup label="7. Elicitation"><option value="7a_aura_vision">7A. Aura Vision</option><option value="7b_find_substance">7B. Find Substance</option><option value="7c_analyze">7C. Analyze</option></optgroup>
+                    <optgroup label="8. Execration"><option value="8a_curse">8A. Curse</option></optgroup>
+                    <optgroup label="9. Favoring"><option value="9a_blessing">9A. Blessing</option></optgroup>
+                    <optgroup label="10. Healing"><option value="10a_treat_minor_wounds">10A. Treat Minor Wounds</option><option value="10b_treat_serious_wounds">10B. Treat Serious Wounds</option><option value="10c_treat_critical_wounds">10C. Treat Critical Wounds</option></optgroup>
+                    <optgroup label="11. Inscription"><option value="11a_inscribe_universal">11A. Inscribe Universal</option></optgroup>
+                    <optgroup label="12. Invisibility"><option value="12a_invisibility">12A. Invisibility</option><option value="12b_curtain_of_invisibility">12B. Curtain of Invisibility</option></optgroup>
+                    <optgroup label="13. Light/Darkness"><option value="13a_ball_of_light_darkness">13A. Ball of Light/Dark</option><option value="13b_beam_of_light_darkness">13B. Beam of Light/Dark</option></optgroup>
+                    <optgroup label="14. Nutrification"><option value="14a_nutrify">14A. Nutrify</option><option value="14b_create_food_drink">14B. Create Food & Drink</option></optgroup>
+                    <optgroup label="15. Perception"><option value="15a_detect_magic">15A. Detect Magic</option></optgroup>
+                    <optgroup label="16. Phantasms"><option value="16a_illusions">16A. Illusions</option><option value="16b_phantasms_i">16B. Phantasms I</option></optgroup>
+                    <optgroup label="17. Robustness"><option value="17a_gain_strength">17A. Gain Strength</option><option value="17b_grant_strength">17B. Grant Strength</option></optgroup>
+                    <optgroup label="18. Seal upon Powers"><option value="18a_ritual_barrier">18A. Ritual Barrier</option></optgroup>
+                    <optgroup label="19. Soporiferousness"><option value="19a_sleep">19A. Sleep</option></optgroup>
+                    <optgroup label="20. Sphere of Quiescence"><option value="20a_psychic_barrier">20A. Psychic Barrier</option></optgroup>
+                    <optgroup label="21. Terrorization"><option value="21a_fear">21A. Fear</option><option value="21b_terror">21B. Terror</option></optgroup>
+                    <optgroup label="22. Translocation"><option value="22a_telekinesis">22A. Telekinesis</option><option value="22b_telekinetic_strike">22B. Telekinetic Strike</option></optgroup>
+                    <optgroup label="23. Transportation"><option value="23a_retrace">23A. Retrace</option></optgroup>
+                    <optgroup label="24. Warding"><option value="24a_protection">24A. Protection</option></optgroup>
+                    <optgroup label="25. Web of Kriyág"><option value="25a_web">25A. Web</option></optgroup>
+                    <optgroup label="26. Zoic Domination"><option value="26a_animal_control">26A. Animal Control</option></optgroup>
+                </select>
+            </div>
+            <input type="hidden" name="attr_spell_display_name" value="Custom Spell" />
+            <input type="hidden" name="attr_spell_type_tag" value="Custom Spell" />
+            <div class="sheet-spell-sub-col" style="width: 60px;">
+                <input type="number" name="attr_spell_level_tn" value="10" min="1" max="25" class="sheet-skill-box" />
+            </div>
+            <div class="sheet-spell-sub-col" style="width: 45px;"><input type="number" name="attr_spell_nrg" value="0" min="0" class="sheet-skill-box" /></div>
+            <div class="sheet-spell-sub-col" style="width: 50px;"><input type="text" name="attr_spell_prep" value="Inst" class="sheet-skill-box" /></div>
+            <div class="sheet-spell-sub-col" style="width: 60px;"><input type="text" name="attr_spell_range" value="0&quot;" class="sheet-skill-box" /></div>
+            <div class="sheet-spell-sub-col" style="width: 80px;"><input type="text" name="attr_spell_duration" value="Inst" class="sheet-skill-box" /></div>
+            <div class="sheet-spell-sub-col" style="width: 110px;">
+                <select name="attr_spell_target_type" class="sheet-skill-box">
+                    <option value="Aimed">Aimed (1 Target)</option>
+                    <option value="Area">Area (Diameter)</option>
+                    <option value="Touch">Touch (Contact)</option>
+                    <option value="Self Only">Self Only</option>
+                </select>
+            </div>
+            <div class="sheet-spell-sub-col" style="width: 65px;">
+                <select name="attr_spell_resist" class="sheet-skill-box">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                    <option value="Partial">Partial</option>
+                </select>
+            </div>
+        </div>
+    </fieldset>
+</div>
+
+<div class="sheet-section-traits">
+    <div class="trait-header-row">
+        <h4>Personal Traits (Disadvantages)</h4>
+        <div class="total-badge">Total Points: <span name="attr_total_disadv_points">0</span> / 5</div>
+    </div>
+    <div class="sheet-trait-table-line sheet-trait-table-header">
+        <div style="width: 320px; text-align: left; padding-left: 5px;">Disadvantage Selection</div>
+        <div style="width: 60px; text-align: center;">Crutch?</div>
+        <div style="width: 70px; text-align: center;">Points Cost</div>
+    </div>
+    <fieldset class="repeating_personal_traits_dis">
+        <div class="sheet-trait-table-line">
+            <div style="width: 320px; padding-left: 5px;">
+                <select name="attr_personal_traits_dis" class="sheet-trait-box">
+                  <option value="none">-- Select Disadvantage --</option>
+                  <option value="Age">Age (1 pt)</option>
+                  <option value="Attribute-1">Attribute -1 (2 pts)</option>
+                  <option value="Blindness">Blindness (4 pts)</option>
+                  <option value="ColorBlind_1">Color Blind - Partial (1 pt)</option>
+                  <option value="ColorBlind_2">Color Blind - Total (2 pts)</option>
+                  <option value="ConflictLoyalty_1">Conflicting Loyalties - Minor (1 pt)</option>
+                  <option value="ConflictLoyalty_2">Conflicting Loyalties - Major (2 pts)</option>
+                  <option value="Dayblind_1">Dayblind - Outdoor (1 pt)</option>
+                  <option value="Dayblind_2">Dayblind - Indoor/Outdoor (2 pts)</option>
+                  <option value="Debt_1">Debt - Level 1 (1 pt)</option>
+                  <option value="Debt_2">Debt - Level 2 (2 pts)</option>
+                  <option value="Debt_3">Debt - Level 3 (3 pts)</option>
+                  <option value="Debt_4">Debt - Level 4 (4 pts)</option>
+                  <option value="Debt_5">Debt - Level 5 (5 pts)</option>
+                  <option value="Dependency">Dependency (2 pts)</option>
+                  <option value="Distinctive">Distinctive (1 pt)</option>
+                  <option value="Enemy_1">Enemy - Mobile OR Powerful (1 pt)</option>
+                  <option value="Enemy_2">Enemy - Mobile AND Powerful (2 pts)</option>
+                  <option value="Far-Sighted">Far-Sighted (2 pts)</option>
+                  <option value="Frail">Frail (1 pt)</option>
+                  <option value="Gigantism">Gigantism (2 pts)</option>
+                  <option value="Guardianship">Guardianship (1 pt)</option>
+                  <option value="HearingImpaired_1">Hearing Impaired - Poor (1 pt)</option>
+                  <option value="HearingImpaired_2">Hearing Impaired - Deaf (2 pts)</option>
+                  <option value="Hesitant">Hesitant (1 pt)</option>
+                  <option value="LowerClan">Lower Clan (2 pts)</option>
+                  <option value="LowerLineage_1">Lower Lineage - Level 1 (1 pt)</option>
+                  <option value="LowerLineage_2">Lower Lineage - Level 2 (2 pts)</option>
+                  <option value="Mute">Mute (2 pts)</option>
+                  <option value="NearsightedOneEyed">Nearsighted or One-Eyed (1 pt)</option>
+                  <option value="Oathbound">Oathbound (1 pt)</option>
+                  <option value="OneHanded_1">One-Handed - Missing Hand/Arm (1 pt)</option>
+                  <option value="OneHanded_2">One-Handed - No Hands/Manipulators (2 pts)</option>
+                  <option value="Outcast">Outcast (1 pt)</option>
+                  <option value="Phobia_1">Phobia - Uncommon Stimulus (1 pt)</option>
+                  <option value="Phobia_2">Phobia - Very Common Stimulus (2 pts)</option>
+                  <option value="Quirk">Quirk (1 pt)</option>
+                  <option value="Secret">Secret (1 pt)</option>
+                  <option value="SkillLimit">Skill Limitation (1 pt)</option>
+                  <option value="Slow_1">Slow - Move / 1.5 (1 pt)</option>
+                  <option value="Slow_2">Slow - Move / 3 (2 pts)</option>
+                  <option value="Slow_3">Slow - Move / 6 (3 pts)</option>
+                  <option value="Slow_4">Slow - Move is 0 (4 pts)</option>
+                  <option value="SpeechImpediment">Speech Impediment (1 pt)</option>
+                  <option value="Temper">Temper (1 pt)</option>
+                  <option value="Unattractive_1">Unattractive (1 pt)</option>
+                  <option value="Unattractive_2">Ugly (2 pts)</option>
+                  <option value="Unattractive_3">Hideous (3 pts)</option>
+                  <option value="Uneducated">Uneducated (1 pt)</option>
+                  <option value="Unlucky_1">Unlucky x1 (-2 Luck) (1 pt)</option>
+                  <option value="Unlucky_2">Unlucky x2 (-4 Luck) (2 pts)</option>
+                  <option value="Unlucky_3">Unlucky x3 (-6 Luck) (3 pts)</option>
+                  <option value="Unlucky_4">Unlucky x4 (-8 Luck) (4 pts)</option>
+                  <option value="Weak">Weak (1 pt)</option>
+                </select>
+            </div>
+            <div style="width: 60px; text-align: center;">
+                <input type="checkbox" name="attr_has_crutch" value="1" class="sheet-trait-check" />
+            </div>
+            <div style="width: 70px; text-align: center;">
+                <input type="number" name="attr_disadv_calculated_points" value="0" readonly class="sheet-trait-box sheet-t-read" />
+            </div>
+        </div>
+    </fieldset>
+</div>
+
+<div class="sheet-section-traits">
+    <div class="trait-header-row">
+        <h4>Personal Traits (Advantages)</h4>
+        <div class="total-badge">Total Points: <span name="attr_total_adv_points">0</span> / 5</div>
+    </div>
+    <div class="sheet-trait-table-line sheet-trait-table-header">
+        <div style="width: 320px; text-align: left; padding-left: 5px;">Advantage Selection</div>
+        <div style="width: 60px; text-align: center;">Device?</div>
+        <div style="width: 70px; text-align: center;">Points Cost</div>
+    </div>
+    <fieldset class="repeating_personal_traits_adv">
+        <div class="sheet-trait-table-line">
+            <div style="width: 320px; padding-left: 5px;">
+                <select name="attr_personal_traits_adv" class="sheet-trait-box">
+                  <option value="none">-- Select Advantage --</option>
+                  <option value="AcuteSense">Acute Sense (1 pt)</option>
+                  <option value="Ambidexterity">Ambidexterity (1 pt)</option>
+                  <option value="AnimalRapport">Animal Rapport (1 pt)</option>
+                  <option value="Attractive">Attractive (1 pt)</option>
+                  <option value="AttributePlus1">Attribute +1 (2 pts)</option>
+                  <option value="Connected">Connected (+3 Contact Pts) (1 pt)</option>
+                  <option value="DangerSense">Danger Sense (1 pt)</option>
+                  <option value="Dexterous">Dexterous (1 pt)</option>
+                  <option value="Estate_1">Estate - Hut/Hovel (1 pt)</option>
+                  <option value="Estate_2">Estate - Small House/Shop (2 pts)</option>
+                  <option value="Estate_3">Estate - Medium House/Shop (3 pts)</option>
+                  <option value="Estate_4">Estate - Large House/Clanhouse (4 pts)</option>
+                  <option value="Estate_5">Estate - Mansion/Clanhouse (5 pts)</option>
+                  <option value="Estate_6">Estate - Palace/Large Clanhouse (6 pts)</option>
+                  <option value="Healthy">Healthy (1 pt)</option>
+                  <option value="HigherClan">Higher Clan (2 pts)</option>
+                  <option value="HigherLineage_1">Higher Lineage - Level 1 (1 pt)</option>
+                  <option value="HigherLineage_2">Higher Lineage - Level 2 (2 pts)</option>
+                  <option value="Intuitive">Intuitive (1 pt)</option>
+                  <option value="Lackey">Lackey (2 pts)</option>
+                  <option value="LatentPsychic">Latent Psychic (1 pt)</option>
+                  <option value="Lucky">Lucky (1 pt)</option>
+                  <option value="LungCapacity">Lung Capacity (1 pt)</option>
+                  <option value="NightVision">Night Vision (1 pt)</option>
+                  <option value="Nimble">Nimble (1 pt)</option>
+                  <option value="PainResistance">Pain Resistance (1 pt)</option>
+                  <option value="Pet_1">Pet - DR up to .5 (1 pt)</option>
+                  <option value="Pet_2">Pet - DR .6 to 1 (2 pts)</option>
+                  <option value="Pet_3">Pet - DR 1.1 to 1.5 (3 pts)</option>
+                  <option value="Pet_4">Pet - DR 1.6 to 2 (4 pts)</option>
+                  <option value="Pet_5">Pet - DR 2.1 to 2.5 (5 pts)</option>
+                  <option value="Perceptive">Perceptive (1 pt)</option>
+                  <option value="Presence">Presence (1 pt)</option>
+                  <option value="PsychicDampener">Psychic Dampener (1 pt)</option>
+                  <option value="QuickThinking">Quick Thinking (1 pt)</option>
+                  <option value="Rational">Rational (1 pt)</option>
+                  <option value="ReferenceLibrary_1">Reference Library - Index 4 (1 pt)</option>
+                  <option value="ReferenceLibrary_2">Reference Library - Index 5 (2 pts)</option>
+                  <option value="ReferenceLibrary_3">Reference Library - Index 6 (3 pts)</option>
+                  <option value="ReferenceLibrary_4">Reference Library - Index 7 (4 pts)</option>
+                  <option value="ReferenceLibrary_5">Reference Library - Index 8 (5 pts)</option>
+                  <option value="SecretIdentity">Secret Identity (1 pt)</option>
+                  <option value="Sleepless">Sleepless (1 pt)</option>
+                  <option value="Small">Small (2 pts)</option>
+                  <option value="Stipend_1">Stipend - level 1 (1 pt)</option>
+                  <option value="Stipend_2">Stipend - level 2 (2 pts)</option>
+                  <option value="Stipend_3">Stipend - level 3 (3 pts)</option>
+                  <option value="Stipend_4">Stipend - level 4 (4 pts)</option>
+                  <option value="Stipend_5">Stipend - level 5 (5 pts)</option>
+                  <option value="Strong">Strong (1 pt)</option>
+                  <option value="Speed">Speed (1 pt)</option>
+                  <option value="Talent">Talent (1 pt)</option>
+                  <option value="Toughness">Toughness (1 pt)</option>
+                  <option value="Training">Training (1 pt)</option>
+                </select>
+            </div>
+            <div style="width: 60px; text-align: center;">
+                <input type="checkbox" name="attr_has_device" value="1" class="sheet-trait-check" />
+            </div>
+            <div style="width: 70px; text-align: center;">
+                <input type="number" name="attr_adv_calculated_points" value="0" readonly class="sheet-trait-box sheet-t-read" />
+            </div>
+        </div>
+    </fieldset>
+</div>
+
+<div class="sheet-section-traits">
+    <div class="trait-header-row">
+        <h4>Step 9: Contacts & Associates</h4>
+        <div class="total-badge">Generation Points: <span name="attr_total_contact_spent">0</span> / <span name="attr_base_contact_points">10</span></div>
+    </div>
+    <div class="sheet-c-table-line sheet-c-table-header">
+        <div style="width: 55px; text-align: center;">Action</div>
+        <div style="width: 170px; text-align: left; padding-left: 5px;">Name / Title / Circle</div>
+        <div style="width: 110px; text-align: center;">Relationship</div>
+        <div style="width: 150px; text-align: center;">Family Kinship Type</div>
+        <div style="width: 80px; text-align: center;">Prestige</div>
+        <div style="width: 70px; text-align: center;">Points Cost</div>
+    </div>
+    <fieldset class="repeating_contacts">
+        <div class="sheet-c-table-line">
+            <div style="width: 55px; text-align: center;">
+                <button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=Contact Favor (@{contact_name})}} {{roll=[[2d10]]}} {{target=[[@{contact_prestige}]]}}" name="roll_contact_favor"></button>
+            </div>
+            <div style="width: 170px; padding-left: 5px;">
+                <input type="text" name="attr_contact_name" placeholder="Name / Title" class="sheet-contact-box" style="text-align: left !important;" />
+            </div>
+            <div style="width: 110px;">
+                <select name="attr_contact_relationship" class="sheet-contact-box">
+                    <option value="associate">Associate (+0)</option>
+                    <option value="friend">Friend (+2)</option>
+                </select>
+            </div>
+            <div style="width: 150px;">
+                <select name="attr_contact_family_type" class="sheet-contact-box">
+                    <option value="none">Non-Family</option>
+                    <option value="parent">Parent (-2)</option>
+                    <option value="sibling">Sibling (-2)</option>
+                    <option value="grandparent">Grandparent (-2)</option>
+                    <option value="aunt_uncle">Aunt / Uncle (-2)</option>
+                    <option value="cousin">Cousin (-2)</option>
+                </select>
+            </div>
+            <div style="width: 80px;">
+                <input type="number" name="attr_contact_prestige" value="1" min="1" max="19" class="sheet-contact-box" />
+            </div>
+            <div style="width: 70px; text-align: center;">
+                <input type="number" name="attr_contact_calculated_cost" value="1" readonly class="sheet-contact-box sheet-c-read" />
+            </div>
+        </div>
+    </fieldset>
+</div>
+
+<div class="sheet-section-traits">
+    <div class="trait-header-row">
+        <h4>4.1 Melee Weapons Inventory</h4>
+    </div>
+    <div class="sheet-w-table-line sheet-w-table-header">
+        <div style="width: 55px; text-align: center;">Action</div>
+        <div style="width: 170px; text-align: left; padding-left: 5px;">Weapon Selection</div>
+        <div style="width: 65px; text-align: center;">Skill TN</div>
+        <div style="width: 115px; text-align: center;">Material</div>
+        <div style="width: 100px; text-align: center;">Wield</div>
+        <div style="width: 65px; text-align: center;">Base Hit</div>
+        <div style="width: 65px; text-align: center;">Req PHYS</div>
+        <div style="width: 85px; text-align: center;">Damage</div>
+        <div style="width: 75px; text-align: center;">PHYS Pen</div>
+        <div style="width: 85px; text-align: center;">Cost</div>
+    </div>
+    <fieldset class="repeating_weapons">
+        <div class="sheet-w-table-line">
+            <div style="width: 55px; text-align: center;">
+                <button type="roll" value="&{template:bethorm} {{name=@{char_name}}} {{stat=@{weapon_class_name} Attack}} {{roll=[[2d10]]}} {{target=[[@{weapon_skill_tn} + @{weapon_hit_bonus} - @{weapon_req_phys}]]}}" class="sheet-d20-btn"></button>
+            </div>
+            <div style="width: 170px; padding-left: 5px;">
+                <select name="attr_weapon_class_name" class="sheet-weapon-box">
+                    <option value="custom">-- Custom Weapon --</option>
+                    <optgroup label="Axes">
+                        <option value="hatchet">Hatchet (21k)</option>
+                        <option value="light axe">Light Axe (42k)</option>
+                        <option value="wood axe">Wood Axe (57k)</option>
+                        <option value="battleaxe">Battleaxe (96k)</option>
+                        <option value="war axe">War Axe (129k)*</option>
+                        <option value="great axe">Great Axe (198k)*</option>
+                        <option value="poleax">Poleax (258k)*</option>
+                        <option value="giant axe">Giant Axe (363k)*</option>
+                    </optgroup>
+                    <optgroup label="Blades">
+                        <option value="stiletto">Stiletto (9k)</option>
+                        <option value="knife">Knife (12k)</option>
+                        <option value="long knife">Long Knife (15k)</option>
+                        <option value="short sword">Short Sword (42k)</option>
+                        <option value="saber">Saber (33k)</option>
+                        <option value="cutlass">Cutlass (57k)</option>
+                        <option value="sword">Sword (75k)</option>
+                        <option value="longsword">Longsword (117k)</option>
+                        <option value="bastard sword">Bastard Sword (153k)</option>
+                        <option value="greatsword">Greatsword (225k)</option>
+                        <option value="claymore">Claymore (288k)</option>
+                        <option value="giant sword">Giant Sword (396k)</option>
+                    </optgroup>
+                    <optgroup label="baton">
+                        <option value="baton">Baton (12k)</option>
+                        <option value="cudgel">Cudgel (12k)</option>
+                        <option value="club">Club (12k)</option>
+                        <option value="light mace">Light Mace (15k)</option>
+                        <option value="mace">Mace (27k)</option>
+                        <option value="morningstar">Morningstar (33k)</option>
+                        <option value="warhammer">Warhammer (57k)</option>
+                        <option value="great club">Great Club (75k)*</option>
+                        <option value="battle mace">Battle Mace (117k)*</option>
+                        <option value="giant club">Giant Club (153k)*</option>
+                        <option value="giant mace">Giant Mace (225k)*</option>
+                    </optgroup>
+                    <optgroup label="Flails">
+                        <option value="light flail">Light Flail (33k)</option>
+                        <option value="flail">Flail (75k)</option>
+                        <option value="heavy flail">Heavy Flail (153k)</option>
+                        <option value="war flail">War Flail (288k)</option>
+                        <option value="giant flail">Giant Flail (492k)</option>
+                    </optgroup>
+                    <optgroup label="Quarterstaves">
+                        <option value="staff">Staff (24k)</option>
+                        <option value="quarterstaff">Quarterstaff (54k)*</option>
+                        <option value="bronze-shod staff">Bronze-Shod Staff (228k)*</option>
+                    </optgroup>
+                    <optgroup label="Spears">
+                        <option value="javelin">Javelin (15k)</option>
+                        <option value="light spear">Light Spear (33k)</option>
+                        <option value="pitchfork">Pitchfork (75k)</option>
+                        <option value="spear">Spear (96k)*</option>
+                        <option value="trident">Trident (129k)*</option>
+                        <option value="boar spear">Boar Spear (153k)*</option>
+                        <option value="pike">Pike (198k)*</option>
+                        <option value="giant spear">Giant Spear (258k)*</option>
+                    </optgroup>
+                    <optgroup label="Whips">
+                        <option value="whip">Whip (9k)</option>
+                        <option value="cat o' nine tails">Cat o' Nine Tails (12k)</option>
+                        <option value="bullwhip">Bullwhip (18k)*</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div style="width: 65px;"><input type="number" name="attr_weapon_skill_tn" value="10" class="sheet-weapon-box" /></div>
+            <div style="width: 115px;">
+                <select name="attr_weapon_material" class="sheet-weapon-box">
+                    <option value="chlen">Chlén-Hide (x1)</option>
+                    <option value="copper">Copper (x5)</option>
+                    <option value="steel">Steel (x50)</option>
+                </select>
+            </div>
+            <div style="width: 100px;">
+                <select name="attr_weapon_wield" class="sheet-weapon-box">
+                    <option value="1h">1-Handed</option>
+                    <option value="2h">2-Handed</option>
+                </select>
+            </div>
+            <div style="width: 65px;"><input type="number" name="attr_weapon_hit_bonus" value="0" class="sheet-weapon-box" /></div>
+            <div style="width: 65px;"><input type="number" name="attr_weapon_req_phys" value="10" class="sheet-weapon-box" /></div>
+            <div style="width: 85px;"><input type="text" name="attr_weapon_calculated_damage" value="3/5/7" readonly class="sheet-weapon-box sheet-w-read" style="font-weight: bold;" /></div>
+            <div style="width: 75px;"><input type="number" name="attr_weapon_phys_penalty" value="0" readonly class="sheet-weapon-box sheet-w-read" style="color: #a31111; font-weight: bold;" /></div>
+            <div style="width: 85px;"><input type="text" name="attr_weapon_calculated_cost" value="0k" readonly class="sheet-weapon-box sheet-w-read" style="font-weight: bold;" /></div>
+        </div>
+    </fieldset>
+</div>
+
+<table style="width: 100%; border-collapse: collapse; margin-top: 20px; display: table !important;">
+    <tr style="display: table-row !important;">
+        <td style="width: 50%; vertical-align: top; padding-right: 10px; display: table-cell !important;">
+            <div class="sheet-section-traits" style="margin: 0;">
+                <div class="trait-header-row">
+                    <h4>4.4 Body Armor Configuration</h4>
+                </div>
+                <div class="row">
+                    Coverage Level:
+                    <select name="attr_armor_coverage" style="width: 60%;">
+                        <option value="none">None (No Armor)</option>
+                        <option value="light">Light (Cost x0.5, Avoid -1, DEFT Lim 11)</option>
+                        <option value="medium">Medium (Cost x1.0, Avoid -2, DEFT Lim 10)</option>
+                        <option value="heavy">Heavy (Cost x2.0, Avoid -3, DEFT Lim 9)</option>
+                    </select>
+                </div>
+                <div class="row">
+                    Armor Material:
+                    <select name="attr_armor_material" style="width: 60%;">
+                        <option value="furs_leather">Furs / Leather (Cost x1.5, DEFT +2)</option>
+                        <option value="chlen">Chlén Armor (Cost x8.0, DEFT +1)</option>
+                        <option value="copper">Copper Plate (Cost x40.0, DEFT +0)</option>
+                        <option value="steel">Steel Plate (Cost x400.0, DEFT +0)</option>
+                    </select>
+                </div>
+                <div class="row">
+                    Armor Fitment Profile:
+                    <select name="attr_armor_fit" style="width: 60%;">
+                        <option value="tailored">Tailored / Perfect Fit (No Penalties)</option>
+                        <option value="over_1">Designed for PHYS +1 (-1 DEFT Lim, +1 Coverage)</option>
+                        <option value="under_1">Designed for PHYS -1 (+1 DEFT Lim, -1 Coverage)</option>
+                    </select>
+                </div>
+                <hr style="border: none; border-top: 1px dashed #d1c7ac; margin: 10px 0;"/>
+                <div class="row">
+                    Base Size Cost (From PHYS): <input type="number" name="attr_armor_base_cost" value="0" readonly style="background-color: #eee;" />
+                </div>
+                <div class="row">
+                    <strong>Calculated Armor Cost:</strong> <input type="text" name="attr_armor_final_cost" value="0k" readonly style="font-weight: bold; background-color: #eee;" />
+                </div>
+                <div class="row">
+                    <strong>Protection Rating (Phys/Energy):</strong> <input type="text" name="attr_armor_protection" value="0/0" readonly style="font-weight: bold; background-color: #eee; text-align: center;" />
+                </div>
+                <div class="row">
+                    <strong>Effective DEFT Limit:</strong> <input type="number" name="attr_armor_deft_limit" value="20" readonly style="font-weight: bold; background-color: #eee;" />
+                </div>
+            </div>
+        </td>
+        <td style="width: 50%; vertical-align: top; padding-left: 10px; display: table-cell !important;">
+            <div class="sheet-section-traits" style="margin: 0; margin-bottom: 15px;">
+                <div class="trait-header-row">
+                    <h4>4.5 Shield Protection Ledger</h4>
+                </div>
+                <div class="row">
+                    Shield Selector:
+                    <select name="attr_shield_size" style="width: 60%;">
+                        <option value="none">No Shield Equipped</option>
+                        <option value="small">Small Shield (12k, Parry +1, Hits 5, Req PHYS 8)</option>
+                        <option value="medium">Medium Shield (25k, Parry +2, Hits 8, Req PHYS 10)</option>
+                        <option value="large">Large Shield (50k, Parry +3, Hits 11, Req PHYS 12)</option>
+                    </select>
+                </div>
+                <div class="row">
+                    Shield Material:
+                    <select name="attr_shield_material" style="width: 60%;">
+                        <option value="chlen">Chlén-Hide / Wood (x1 Cost)</option>
+                        <option value="copper">Copper (x5 Cost, +1 Req PHYS)</option>
+                        <option value="steel">Steel (x50 Cost, +2 Hits, +1 Req PHYS)</option>
+                    </select>
+                </div>
+                <div class="row">
+                    Current Shield Hits Remaining: <input type="number" name="attr_shield_hits" value="0" /> / Max: <input type="number" name="attr_shield_hits_max" value="0" readonly style="background-color: #eee;" />
+                </div>
+                <div class="row">
+                    Shield Parry Bonus / Skill Penalty: <input type="text" name="attr_shield_summary" value="+0 Parry / -0 Skill" readonly style="background-color: #eee; text-align: center; width: 45%;" />
+                </div>
+                <div class="row">
+                    <strong>Calculated Shield Cost:</strong> <input type="text" name="attr_shield_final_cost" value="0k" readonly style="font-weight: bold; background-color: #eee;" />
+                </div>
+            </div>
+
+            <div class="sheet-section-traits" style="margin: 0;">
+                <div class="trait-header-row">
+                    <h4>4.6 Helmet Assembly (Head Shots)</h4>
+                </div>
+                <div class="row">
+                    Helmet Coverage Type:
+                    <select name="attr_helmet_coverage" style="width: 60%;">
+                        <option value="none">No Helmet Worn</option>
+                        <option value="cap">Cap (x0.2 Cost, +0/+0 Prot, Avoid -4)</option>
+                        <option value="helmet">Helmet (x0.4 Cost, +1/+1 Prot, Avoid -5)</option>
+                        <option value="full_helm">Full Helm (x0.6 Cost, +2/+1 Prot, Avoid -6, -1 Perc)</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <strong>Head Protection (Phys/Energy):</strong> <input type="text" name="attr_helmet_protection" value="0/0" readonly style="font-weight: bold; background-color: #eee; text-align: center;" />
+                </div>
+                <div class="row">
+                    <strong>Calculated Helmet Cost:</strong> <input type="text" name="attr_helmet_final_cost" value="0k" readonly style="font-weight: bold; background-color: #eee;" />
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<rolltemplate class="sheet-rolltemplate-bethorm">
+    <div class="sheet-template-container">
+        <div class="sheet-template-header">{{name}}</div>
+        <div class="sheet-template-body">
+            <div style="font-size: 13px; font-weight: bold; color: #7a1111; text-align: center; border-bottom: 1px dashed #d1c7ac; padding-bottom: 3px; margin-bottom: 6px;">{{stat}}</div>
+            {{#type}}<div><strong>Classification:</strong> {{type}}</div>{{/type}}
+            <div><strong>Target Number (TN):</strong> {{target}}</div>
+            <div><strong>2d10 Result:</strong> {{roll}}</div>
+        </div>
+    </div>
+</rolltemplate>
